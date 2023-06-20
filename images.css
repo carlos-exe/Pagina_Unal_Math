@@ -1,0 +1,48 @@
+body {
+    font-family:Arial;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+.header{
+    position: relative;
+    height: 130px;
+    width:1376px;
+    background-image: url("header.png");
+    top:-10;
+    left:-10;
+    opacity: 1;
+}
+.header1{
+    position: absolute;
+    height: 20vh;
+    width: 70vw;
+    background-image: url("header1.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    top:-10;
+    left:-10;
+    opacity: 1;
+}
+.logo{
+    position: absolute;
+    height: 15vh;
+    width: 15vw;
+    background-image: url("logo.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
+    top:0;
+    opacity: 1;
+}
+.w{
+    position:absolute; 
+    background-image: url('W.jpg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+@media screen and (min-width: 768px) {
+    /* Agrega estilos específicos para pantallas medianas */
+}
+@media screen and (min-width: 1024px) {
+/* Agrega estilos específicos para pantallas grandes */
+}

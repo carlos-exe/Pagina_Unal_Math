@@ -1,0 +1,210 @@
+<html lang="es">
+<title>Monitorias Matematicas Unal</title>
+<head>
+    <style>
+        .lista-personas {
+          display: none;
+        }
+        .lista-asignaturas {
+          display: none;
+        }
+    </style>
+    <script>
+        function mostrarListaPersonas() {
+        var listaPersonas = document.getElementById('lista-personas');
+        listaPersonas.style.display = 'block';
+        }
+        function ocultarListaPersonas() {
+        var listaPersonas = document.getElementById('lista-personas');
+        listaPersonas.style.display = 'none';
+        var botonSeleccion = document.getElementById('boton-seleccion');
+        var listaDesplegable = document.getElementById('correo_destino');
+        var nombreSeleccionado = listaDesplegable.options[listaDesplegable.selectedIndex].text;
+        botonSeleccion.innerHTML = 'Monitor: ' + nombreSeleccionado;
+        }
+        function mostrarasignaturas() {
+        var listaasignaturas = document.getElementById('lista-asignaturas');
+        listaasignaturas.style.display = 'block';
+        }
+        function ocultarasignaturas() {
+        var listaasignaturas = document.getElementById('lista-asignaturas');
+        listaasignaturas.style.display = 'none';
+        var botonSeleccion1 = document.getElementById('boton-seleccion1');
+        var listaDesplegable1 = document.getElementById('asignatura');
+        var asignSeleccionado = listaDesplegable1.options[listaDesplegable1.selectedIndex].text;
+        botonSeleccion1.innerHTML = 'Asignatura: ' + asignSeleccionado;
+        }
+    </script>
+    <meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
+    <link rel ="stylesheet" href="images.css">
+</head>
+<body class="w">
+    <?php
+    if(isset($_POST['Confirmacion'])) {
+        $destinatario = $_POST['correo_destino'];
+        $asunto = Monitoria en la asignatura $_POST['Asignatura'];
+        $mensaje = $_POST['mensaje'];
+  
+        // Cuerpo del mensaje
+        $contenido = "De: " . $_POST['correo_envio'] . "\n";
+        $contenido .= "Asunto: " . $asunto . "\n";
+        $contenido .= "Mensaje: " . $mensaje . "\n";
+  
+        // Enviar el correo
+        if(mail($destinatario, $asunto, $contenido)) {
+        echo "El correo se ha enviado correctamente.";
+        } else {
+        echo "Hubo un error al enviar el correo.";
+        }
+    } 
+    ?>
+    <header>
+        <div class="header"></div>
+        <div class="header1"></div> 
+        <a href="https://unal.edu.co/">
+            <div class="logo"></div>
+        </a>
+        <a href="file:///C:/Users/Carlos/Downloads/P%C3%A1ginas%20web/UNAL/Unal%20final.html">
+            <div style="position:absolute;top:0;left:35%">
+                <center><h1><font size="6" color="white"><b>Bienvenido al sistema de<br> monitorías de Matematicas</b></font></h1></center>
+            </div>
+        </a>
+    </header>
+    <center><table border="0" width="80%" bgcolor="#ffffff" style="position:absolute; top:100%; left:10%; opacity:0.5">
+        <tr>
+            <td><h1><br><br><br><br><br><br><br><br><br><br><br></h1></td>
+        </tr>
+    </table>
+    </center>
+    <center><table border="0" width="80%" style="position:absolute; top:105%; left:10%;">
+        <tr>
+            <td colspan="2"><center><h2>A continuación seleccione el estudiante, la asignatura, el día y la hora:</h2></center></td>
+        </tr>
+        <!-- <tr>
+           <td>
+            <div class="navigation">
+            <div class="navbar-">
+                <div class="btn-group">
+                    <div class="btn btn-default dropdown-toggle" data-toggle="dropdown" tabindex="0">
+                        <b>Estudiantes</b>
+                        <span class="caret">
+                        </span></div><ul class="dropdown-menu">
+                            <li>
+                                <a href="http://rectoria.unal.edu.co" target="_blank">
+                                    Rectoria
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/la-universidad/naturaleza.html" target="_self">
+                                    Naturaleza
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/la-universidad/mision-y-vision.html" target="_self">
+                                    Misión y Visión
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://lineadetiempoun.unal.edu.co/linea-de-tiempo/" target="_blank">
+                                    Historia
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/la-universidad/mensajes-institucionales.html" target="_self">
+                                    Mensajes Institucionales
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://unal.edu.co/menu-principal/la-universidad/ubicacion/" target="_blank">
+                                    Ubicación
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/la-universidad/estructura.html" target="_self">
+                                    Estructura
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                </div>
+            </td>
+        </tr> -->
+    </table>
+    </center>
+    <form method="post" action="">
+    <div>
+        <div style="position:absolute; top:300; left:150;">
+            <button id="boton-seleccion" onclick="mostrarListaPersonas()"><b>Seleccionar destinatario</b></button>
+            <br><br>
+            <div id="lista-personas" class="lista-personas">
+                <label for="correo_destino">Destinatario:</label>
+                <select name="correo_destino" id="correo_destino" onchange="ocultarListaPersonas()">
+                    <option value="">Seleccionar</option>
+                    <option value="persona1@unal.edu.co">Carlos Andrés Ordóñez Cerón</option>
+                    <option value="persona2@unal.edu.co">Monitor2</option>
+                    <option value="persona3@unal.edu.co">Monitor3</option>
+                </select>
+            </div>
+        </div>>
+        <br><br>
+        <div style="position:absolute; top:300; left:500;">
+            <button id="boton-seleccion1" onclick="mostrarasignaturas()"><b>Seleccionar Asignatura</b></button>
+            <br><br>
+            <div id="lista-asignaturas" class="lista-asignaturas">
+                <label for="Asignatura">Asignatura:</label>
+                <select name="Asignatura" id="asignatura" onchange="ocultarasignaturas()">
+                    <option value="">Seleccionar</option>
+                    <option value="A1">Cálculo Diferencial</option>
+                    <option value="A2">Cálculo Integral</option>
+                    <option value="A3">Cálculo Vectorial</option>
+                </select>
+            </div>
+        </div>
+        <div style="position:absolute; top:300; left:60%;">
+            <label for="fecha"><b>Fecha:</b></label>
+            <input type="date" name="fecha" required><br><br>
+        </div>
+        <div style="position:absolute; top:300; left:75%;">
+            <label for="hora"><b>Hora:</b></label>
+            <input type="time" name="hora" required><br><br>
+        </div>
+        <div style="position:absolute; top:400; left:650;">
+            <input type="submit" name="Confirmacion" value= "Confirmar Monitoría">
+        </div>
+        <div style="position:absolute; top:250; left:500;">
+            <label for="Correo-remitente">Ingresa tu correo:</label>
+            <input type="text" name="Correo-remitente" required>
+        </div>
+        <div style="position:absolute;top:570;left:970; right:0;opacity: 0.9;">
+            <img src="header.png">
+        </div>
+    </form>
+        <div style="position:absolute;top:560;left:980; right:0;opacity: 0.9;">
+            <h4><font size="2" color="white">
+                <b>Correo: 
+                    <a href="mailto:carmate_man@unal.edu.co">
+                        <font size="2" color="white">
+                            carmate_man@unal.edu.co
+                        </font>
+                    </a>
+                </b>
+            </font>
+            <font size="2" color="white">
+                <br>Dirección: Campus La Nubia - Bloque W, piso 2<br>
+                PBX: (57) 6 8879300
+                <br>Extensión: 55734<br>
+            </font>
+        </h4>
+        </div>
+    </div>
+    <div style="position:absolute; top:450;left:12.5%; width: 1000;">
+        <h2>
+            <center>
+                <font size="4">A continuación se enviará un correo a la secretaría de matemáticas y al monitor seleccionado con el asunto "Monitoría en Asignatura seleccionada" y con mensaje "Solicito una monitoría en la Asignatura Seleccionada, con Monitor seleccionado, el día Fecha seleccionada y en la hora hora seleccionada"
+                </font>
+            </center>
+        </h2>
+    </div>
+</body> 
+</html>
